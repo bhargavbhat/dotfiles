@@ -64,3 +64,12 @@
 [submodule "vimfiles/bundle/vimproc"]
 	path = vimfiles/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "vimfiles/bundle/vim-easytags"]
+	path = vimfiles/bundle/vim-easytags
+	url = https://github.com/xolox/vim-easytags.git
+[submodule "vimfiles/bundle/vim-misc"]
+	path = vimfiles/bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git
+[submodule "vimfiles/bundle/DoxygenToolkit"]
+	path = vimfiles/bundle/DoxygenToolkit
+	url = https://github.com/mrtazz/DoxygenToolkit.vim.git
