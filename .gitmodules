@@ -34,3 +34,12 @@
 [submodule "vimfiles/bundle/vim-surround"]
 	path = vimfiles/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vimfiles/bundle/neocomplete"]
+	path = vimfiles/bundle/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vimfiles/bundle/neosnippet"]
+	path = vimfiles/bundle/neosnippet
+	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "vimfiles/bundle/neosnippet-snippets"]
+	path = vimfiles/bundle/neosnippet-snippets
+	url = https://github.com/Shougo/neosnippet-snippets.git
