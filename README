@@ -1,0 +1,19 @@
+This repo is a collection of configuration files for various tools that are used by me. Currently, it tracks dotfiles for the SilverSearcher, bash and vim.
+
+symlink checklist
+.vimrc
+.gvimrc
+.vim
+.agignore
+.bashrc
+
+Notes for ag
+Build instructions from https://github.com/ggreer/the_silver_searcher#building-from-source
+* apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+* ./build.sh
+* sudo make install
+
+Notes for vim
+Getting vim with lua by sudo apt-get install vim-nox
+ppa with up-to-date vim builds is at https://launchpad.net/~pi-rho/+ppa-packages
+
