@@ -77,3 +77,23 @@ nnoremap <C-S-J> <C-W><C-J>
 nnoremap <C-S-K> <C-W><C-K>
 nnoremap <C-S-L> <C-W><C-L>
 nnoremap <C-S-H> <C-W><C-H>
+
+" HiCursorWords Settings
+let g:HiCursorWords_delay = 250
+
+" gvim Stuff
+if has('gui_running')
+    if has("win16") || has('win32') || has ('win64')
+        set guifont=Source\ Code\ Pro\ Medium:h13
+    else
+        set guifont=Source\ Code\ Pro\ Medium\ 13
+    endif
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
+endif
+
+" color scheme stuff
+set t_Co=256
+colorscheme apprentice
