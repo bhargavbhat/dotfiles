@@ -43,3 +43,24 @@
 [submodule "vimfiles/bundle/neosnippet-snippets"]
 	path = vimfiles/bundle/neosnippet-snippets
 	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule "vimfiles/bundle/unite"]
+	path = vimfiles/bundle/unite
+	url = https://github.com/Shougo/unite.vim.git
+[submodule "vimfiles/bundle/neomru"]
+	path = vimfiles/bundle/neomru
+	url = https://github.com/Shougo/neomru.vim.git
+[submodule "vimfiles/bundle/unite-outline"]
+	path = vimfiles/bundle/unite-outline
+	url = https://github.com/h1mesuke/unite-outline.git
+[submodule "vimfiles/bundle/unite-quickfix"]
+	path = vimfiles/bundle/unite-quickfix
+	url = https://github.com/osyo-manga/unite-quickfix.git
+[submodule "vimfiles/bundle/unite-session"]
+	path = vimfiles/bundle/unite-session
+	url = https://github.com/Shougo/unite-session.git
+[submodule "vimfiles/bundle/unite-tag"]
+	path = vimfiles/bundle/unite-tag
+	url = https://github.com/tsukkee/unite-tag.git
+[submodule "vimfiles/bundle/vimproc"]
+	path = vimfiles/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git
