@@ -13,3 +13,24 @@
 [submodule "vimfiles/bundle/Apprentice"]
 	path = vimfiles/bundle/Apprentice
 	url = https://github.com/romainl/Apprentice.git
+[submodule "vimfiles/bundle/lightline"]
+	path = vimfiles/bundle/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vimfiles/bundle/nerdtree"]
+	path = vimfiles/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vimfiles/bundle/nerdcommenter"]
+	path = vimfiles/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vimfiles/bundle/vim-bookmarks"]
+	path = vimfiles/bundle/vim-bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks.git
+[submodule "vimfiles/bundle/vim-sneak"]
+	path = vimfiles/bundle/vim-sneak
+	url = https://github.com/justinmk/vim-sneak.git
+[submodule "vimfiles/bundle/vim-repeat"]
+	path = vimfiles/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vimfiles/bundle/vim-surround"]
+	path = vimfiles/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
