@@ -1,0 +1,15 @@
+[submodule "vimfiles/bundle/delimitMate"]
+	path = vimfiles/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vimfiles/bundle/matchit"]
+	path = vimfiles/bundle/matchit
+	url = https://github.com/tmhedberg/matchit.git
+[submodule "vimfiles/bundle/HiCursorWords"]
+	path = vimfiles/bundle/HiCursorWords
+	url = https://github.com/ihacklog/HiCursorWords.git
+[submodule "vimfiles/bundle/a.vim"]
+	path = vimfiles/bundle/a.vim
+	url = https://github.com/vim-scripts/a.vim.git
+[submodule "vimfiles/bundle/Apprentice"]
+	path = vimfiles/bundle/Apprentice
+	url = https://github.com/romainl/Apprentice.git
