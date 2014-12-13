@@ -119,6 +119,64 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
+" Unite.vim Settings
+let g:unite_source_history_yank_enable = 1
+let g:unite_enable_start_insert = 0
+let g:unite_enable_smart_case = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 15
+let g:unite_update_time = 200
+
+" CtrlP-like search using Unite.vim
+if executable('ag')
+	if has("win16") || has("win32") || has("win64")
+	    "don't use async on Windows... for now. todo : fix the vimproc DLL
+	    "issues and enable async on Windows too
+		nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec<CR>
+    else
+		let g:unite_source_rec_async_command= 'ag -p ~/.agignore --follow --nocolor --nogroup --hidden -g ""'
+		let g:unite_source_grep_command = 'ag'
+		let g:unite_source_grep_default_opts = '-i -p ~/.agignore --nogroup --nocolor --hidden'
+		let g:unite_source_grep_recursive_opt = ''
+		nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec/async:!<CR>
+	endif
+else
+    " fallback mode if no SilverSearcher (assuming no ag == no async either)
+    nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec<CR>
+endif
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+\ 'ignore_pattern', join([
+\ '.class$', '\.jar$',
+\ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
+\ '\.o$', '\.so$', '\.lo$', '\.lib$', '\.out$', '\.obj$', 
+\ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$',
+\ '\.ac$', '\.cache$', '\.0$' 
+\ ], '\|'))
+
+nnoremap <silent> <Leader>m :Unite -start-insert -buffer-name=recent file_mru<CR>
+nnoremap <silent> <Leader>b :Unite -buffer-name=buffers buffer<CR>
+nnoremap <silent> <Leader>y :Unite -buffer-name=yank history/yank<cr>
+nnoremap <silent> <Leader>g :<C-u>Unite grep:. -start-insert -buffer-name=search-buffer<CR>
+nnoremap <silent> <Leader>r :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> <F11> :Unite -start-insert -buffer-name=tag-buffer tag<CR>
+
+" Unite-tag settings
+nnoremap <silent> <buffer> <Leader>z :<C-u>UniteWithCursorWord -immediately tag<CR> 
+nnoremap <silent> <Leader>o :<C-u>Unite outline -vertical -winwidth=30 -buffer-name=outline-buffer<CR>
+
+" Unite-session settings (autosave and reload on vim-launch)
+let g:unite_source_session_enable_auto_save = 1 
+" autocmd VimEnter * UniteSessionLoad 
+nnoremap <silent> <Leader>l :<C-u>UniteSessionLoad<CR>
+
+" Close unite windows with double tap <ESC>
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
 " Sneak settings
 let g:sneak#use_ic_scs = 1
 hi link SneakPluginTarget ErrorMsg
@@ -153,6 +211,15 @@ let g:bookmark_annotation_sign = '##'
 let g:bookmark_auto_save = 1
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save_file = $VIMHOME .'/.saved-vim-bookmarks' 
+
+" play nice with  unite-quickfix source (pops up unite when hitting ma)
+call unite#custom#profile('source/quickfix,source/location_list', 'context', {
+\   'winheight': 13,
+\   'direction': 'botright',
+\   'start_insert': 1,
+\   'keep_focus': 1,
+\   'no_quit': 1,
+\ })
 
 " gvim Stuff
 if has('gui_running')
