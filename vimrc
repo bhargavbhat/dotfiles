@@ -78,6 +78,9 @@ nnoremap <C-S-K> <C-W><C-K>
 nnoremap <C-S-L> <C-W><C-L>
 nnoremap <C-S-H> <C-W><C-H>
 
+" bring in lightline settings
+so $VIMHOME/bundle/sourceables/lightline-config.vim
+
 " HiCursorWords Settings
 let g:HiCursorWords_delay = 250
 
