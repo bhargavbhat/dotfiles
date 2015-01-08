@@ -160,16 +160,17 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 \ '\.ac$', '\.cache$', '\.0$' 
 \ ], '\|'))
 
+" misc unite settings
 nnoremap <silent> <Leader>m :Unite -start-insert -buffer-name=recent file_mru<CR>
 nnoremap <silent> <Leader>b :Unite -buffer-name=buffers buffer<CR>
 nnoremap <silent> <Leader>y :Unite -buffer-name=yank history/yank<cr>
-nnoremap <silent> <Leader>g :<C-u>Unite grep:. -start-insert -buffer-name=search-buffer<CR>
-nnoremap <silent> <Leader>r :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> <Leader>g :Unite grep:. -start-insert -buffer-name=search-buffer<CR>
+nnoremap <silent> <Leader>r :UniteResume search-buffer<CR>
 nnoremap <silent> <F11> :Unite -start-insert -buffer-name=tag-buffer tag<CR>
 
 " Unite-tag settings
-nnoremap <silent> <buffer> <Leader>z :<C-u>UniteWithCursorWord -immediately tag<CR> 
-nnoremap <silent> <Leader>o :<C-u>Unite outline -vertical -winwidth=30 -buffer-name=outline-buffer<CR>
+nnoremap <silent> <buffer> <Leader>z :UniteWithCursorWord -immediately tag<CR> 
+nnoremap <silent> <Leader>o :Unite outline -vertical -winwidth=30 -buffer-name=outline-buffer<CR>
 
 " Unite-session settings (autosave and reload on vim-launch)
 let g:unite_source_session_enable_auto_save = 1 
