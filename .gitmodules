@@ -73,3 +73,6 @@
 [submodule "vimfiles/bundle/DoxygenToolkit"]
 	path = vimfiles/bundle/DoxygenToolkit
 	url = https://github.com/mrtazz/DoxygenToolkit.vim.git
+[submodule "vimfiles/bundle/indentLine"]
+	path = vimfiles/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
