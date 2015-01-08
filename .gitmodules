@@ -51,7 +51,7 @@
 	url = https://github.com/Shougo/neomru.vim.git
 [submodule "vimfiles/bundle/unite-outline"]
 	path = vimfiles/bundle/unite-outline
-	url = https://github.com/h1mesuke/unite-outline.git
+	url = https://github.com/Shougo/unite-outline 
 [submodule "vimfiles/bundle/unite-quickfix"]
 	path = vimfiles/bundle/unite-quickfix
 	url = https://github.com/osyo-manga/unite-quickfix.git
