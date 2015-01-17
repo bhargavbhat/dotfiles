@@ -3,20 +3,20 @@ set nocompatible
 
 " voodoo for runtimepath & $HOME location on Windows
 if has("win16") || has("win32") || has("win64")
-	let $VIMHOME = $HOME."/vimfiles"
-	
-	"runtimepath hacks for on windows
-	let g:my_vim_dir=expand("$HOME/.vim")
-	execute "set rtp^=".g:my_vim_dir
-	execute "set rtp+=".g:my_vim_dir."\\after"
-	let &rtp=substitute(&rtp,"[/]","\\","g")
+    let $VIMHOME = $HOME."/vimfiles"
+    
+    "runtimepath hacks for on windows
+    let g:my_vim_dir=expand("$HOME/.vim")
+    execute "set rtp^=".g:my_vim_dir
+    execute "set rtp+=".g:my_vim_dir."\\after"
+    let &rtp=substitute(&rtp,"[/]","\\","g")
 
-	"if called from cygwin change shell to cmd.exe 
-	if &shell=~#'bash$'
-		set shell=$COMSPEC " sets shell to correct path for cmd.exe
-	endif
+    "if called from cygwin change shell to cmd.exe 
+    if &shell=~#'bash$'
+        set shell=$COMSPEC " sets shell to correct path for cmd.exe
+    endif
 else
-	let $VIMHOME = $HOME."/.vim"
+    let $VIMHOME = $HOME."/.vim"
 endif
 
 " Pathogen Init
@@ -26,51 +26,51 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " general vim settings & options
-syntax on
-filetype plugin indent on
+syntax on                               " enable syntax highlights
+filetype plugin indent                  " indent based on filetype  
 set ttimeoutlen=100
-set ttyfast
-set showmode						    " display current mode
-set wildmode=longest,full			    " autocomplete for filenames 
-set wildmenu							" enable wildmenu (with mode set above)
-set hidden								" hide buffers instead of closing them
-set laststatus=2						" display status line with filepath
-set nowrap							    " don't wrap lines
+set ttyfast                             " fast scrolling
+set showmode                            " display current mode
+set wildmode=longest,full               " autocomplete for filenames 
+set wildmenu                            " enable wildmenu (with mode set above)
+set hidden                              " hide buffers instead of closing them
+set laststatus=2                        " display status line with filepath
+set nowrap                              " don't wrap lines
 set backspace=indent,eol,start          " backspace over everything in insert mode
-set number							    " always show line numbers
-set ignorecase						    " ignore case when searching
-set smartcase    						" ignore case if search pattern is all lowercase,case-sensitive otherwise
-set smarttab      						" insert tabs on the start of a line according to shiftwidth, not tabstop
-set tabstop=4     						" a tab is four spaces
-set shiftwidth=4  						" number of spaces to use for autoindenting
-set softtabstop=4   					" Sets the number of columns for a TAB to 4
-set shiftround    						" use multiple of shiftwidth when indenting with '<' and '>'
-set expandtab	  					    " replace tabs with spaces
-set autoindent    						" always set autoindenting on
-set cindent	  						    " stricter indenting for C family
-set smartindent   						" smart indenting mode (auto indent for new lines)
-set copyindent   						" copy the previous indentation on autoindenting
-set hlsearch      						" highlight search terms
-set incsearch     						" show search matches as you type
-set nobackup	  						" disable backup file
-set noswapfile	  					    " disable swap (*.swp) file
-set smartcase	  						" enable smart-case searching (lowercase matches both)
-set history=1000         				" remember more commands and search history
-set undolevels=1000      				" use many muchos levels of undo
-set title                				" change the terminal's title
-set visualbell           				" don't beep
-set noerrorbells         				" more don't beep
-set splitbelow			 				" natural window splitting
-set splitright			 				" natural window splitting
-set autoread			 				" reload file changes
-set noshowmode           				" hide the status line for I've got lightline
+set number                              " always show line numbers
+set ignorecase                          " ignore case when searching
+set smartcase                           " ignore case if search pattern is all lowercase,case-sensitive otherwise
+set smarttab                            " insert tabs on the start of a line according to shiftwidth, not tabstop
+set tabstop=4                           " a tab is four spaces
+set shiftwidth=4                        " number of spaces to use for autoindenting
+set softtabstop=4                       " Sets the number of columns for a TAB to 4
+set shiftround                          " use multiple of shiftwidth when indenting with '<' and '>'
+set expandtab                           " replace tabs with spaces
+set autoindent                          " always set autoindenting on
+set cindent                             " stricter indenting for C family
+set smartindent                         " smart indenting mode (auto indent for new lines)
+set copyindent                          " copy the previous indentation on autoindenting
+set hlsearch                            " highlight search terms
+set incsearch                           " show search matches as you type
+set nobackup                            " disable backup file
+set noswapfile                          " disable swap (*.swp) file
+set smartcase                           " enable smart-case searching (lowercase matches both)
+set history=1000                        " remember more commands and search history
+set undolevels=1000                     " use many muchos levels of undo
+set title                               " change the terminal's title
+set visualbell                          " don't beep
+set noerrorbells                        " more don't beep
+set splitbelow                          " natural window splitting
+set splitright                          " natural window splitting
+set autoread                            " reload file changes
+set noshowmode                          " hide the status line for I've got lightline
+set esckeys                             " handle arrow keys with ESC codes
 
 " common key mappings
-let mapleader=","								" set leader key to ,
-set pastetoggle=<F2>							" toggle for paste-mode
-nmap <silent> <leader>/ :nohlsearch<CR>			" clear search term highlighting
-nnoremap <leader><leader> <c-^>					" quickly switch between current & prev buffer
-nnoremap <leader><leader>:ls<CR>:b<Space>		" show list of open buffers and prepare to switch
+let mapleader=","                               " set leader key to comma
+set pastetoggle=<F2>                            " toggle for paste-mode
+nmap <silent> <leader>/ :nohlsearch<CR>         " clear search term highlighting
+nnoremap <leader><leader> <c-^>                 " quickly switch between current & prev buffer
 
 " Window naviation remap
 nnoremap <C-S-J> <C-W><C-J>
@@ -133,17 +133,17 @@ let g:unite_update_time = 200
 
 " CtrlP-like search using Unite.vim
 if executable('ag')
-	if has("win16") || has("win32") || has("win64")
-	    "don't use async on Windows... for now. todo : fix the vimproc DLL
-	    "issues and enable async on Windows too
-		nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec<CR>
+    if has("win16") || has("win32") || has("win64")
+        "don't use async on Windows... for now. todo : fix the vimproc DLL
+        "issues and enable async on Windows too
+        nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec<CR>
     else
-		let g:unite_source_rec_async_command= 'ag -p ~/.agignore --follow --nocolor --nogroup --hidden -g ""'
-		let g:unite_source_grep_command = 'ag'
-		let g:unite_source_grep_default_opts = '-i -p ~/.agignore --nogroup --nocolor --hidden'
-		let g:unite_source_grep_recursive_opt = ''
-		nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec/async:!<CR>
-	endif
+        let g:unite_source_rec_async_command= 'ag -p ~/.agignore --follow --nocolor --nogroup --hidden -g ""'
+        let g:unite_source_grep_command = 'ag'
+        let g:unite_source_grep_default_opts = '-i -p ~/.agignore --nogroup --nocolor --hidden'
+        let g:unite_source_grep_recursive_opt = ''
+        nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec/async:!<CR>
+    endif
 else
     " fallback mode if no SilverSearcher (assuming no ag == no async either)
     nnoremap <silent> <C-p> :<C-u>Unite -start-insert -buffer-name=files -start-insert buffer file_rec<CR>
