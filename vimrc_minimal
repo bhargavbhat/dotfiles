@@ -19,7 +19,7 @@ set smarttab                                                " insert tabs on the
 set tabstop=4                                               " a tab is four spaces
 set shiftwidth=4                                            " number of spaces to use for autoindenting
 set softtabstop=4                                           " Sets the number of columns for a TAB to 4
-set shiftround                                              " use multiple of shiftwidth when indenting with '<' and '>', i.e when indenting at 3 spaces go to 4, not 5"
+set shiftround                                              " use multiple of shiftwidth when indenting with '<' and '>', i.e when indenting at 3 spaces go to 4, not 5
 set expandtab                                               " replace tabs with spaces
 set autoindent                                              " always set autoindenting on
 set cindent                                                 " stricter indenting for C family
