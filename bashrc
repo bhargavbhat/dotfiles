@@ -71,6 +71,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias stripexif="exiftool -overwrite_original_in_place -all= -tagsfromfile @ -IFD0:Make -IFD0:Model -ExifIFD:ExposureTime -ExifIFD:FNumber -ExifIFD:ISO -ExifIFD:ISOSpeed -ExifIFD:ShutterSpeedValue -ExifIFD:ApertureValue -ExifIFD:ExposureCompensation -ExifIFD:Flash -Nikon:Lens -Exif:FocalLength -Author='Bhargav Bhat - bhargavbhat@yahoo.co.in'"
 
 #git completion support
 [ -r /etc/bash_completion.d/git ] && . /etc/bash_completion.d/git
