@@ -17,3 +17,7 @@ Notes for vim
 Getting vim with lua by sudo apt-get install vim-nox
 ppa with up-to-date vim builds is at https://launchpad.net/~pi-rho/+ppa-packages
 
+Notes for ghostBSD
+rc.conf -> /etc/rc.conf
+loader.conf -> /boot/loader.conf
+Options added for faster boot, headphone switching and support for a bunch of features (NTFS mounting, VirtualBox Support, Faster bootup)
