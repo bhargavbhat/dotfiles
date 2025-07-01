@@ -23,18 +23,17 @@ workspace_layout tabbed
 font pango:Monospace 12
 
 # autostart XFCE4 stuff
-# exec --no-startup-id xfce4-panel --disable-wm-check &
-exec --no-startup-id i3-msg 'workspace 1; exec xfce4-panel --disable-wm-check &
-exec --no-startup-id xfce4 --disable-wm-check &
+exec --no-startup-id xfsettingsd &
+exec --no-startup-id xfce4-panel --disable-wm-check &
 exec --no-startup-id /usr/libexec/xfce-polkit &
-exec --no-startup-id xfce4-clipman
-exec --no-startup-id xfsettingsd
+exec --no-startup-id networkmgr &
 
-# autostart apps
-exec --no-startup-id limits -m 6g -v 1g firefox
+# autostart programs
+exec --no-startup-id i3-msg 'workspace 2; exec "limits -m 7g firefox"'
+exec --no-startup-id i3-msg 'workspace 1; exec xfce4-terminal'
 
 # Screenlock
-bindsym Control+Mod1+l exec i3lock
+bindsym Control+Mod1+l exec ~/.config/i3/lock
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
