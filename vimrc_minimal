@@ -6,6 +6,7 @@ syntax on                                                   " turn on syntax hig
 filetype plugin indent on                                   " filetype based indentation
 set ttimeoutlen=100
 set ttyfast
+set mouse=                                                  " disable the mouse COMPLETELY
 set wildmode=longest,full                                   " autocomplete for filenames 
 set wildmenu                                                " enable wildmenu (with mode set above)
 set hidden                                                  " hide buffers instead of closing them
