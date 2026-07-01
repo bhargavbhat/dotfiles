@@ -4,15 +4,18 @@ set nocompatible
 " general vim settings & options
 syntax on                                                   " turn on syntax highlighting
 filetype plugin indent on                                   " filetype based indentation
-set ttimeoutlen=100
-set ttyfast
-set mouse=                                                  " disable the mouse COMPLETELY
+set ruler                                                   " show cursor position
+set signcolumn=yes                                          " show side gutter to prevent layout shifts
+set ttimeout                                                " activate ttimeout
+set ttimeoutlen=100                                         " more responsive multi-key presses
+set ttyfast                                                 " faster redrawing
 set wildmode=longest,full                                   " autocomplete for filenames 
 set wildmenu                                                " enable wildmenu (with mode set above)
 set hidden                                                  " hide buffers instead of closing them
 set laststatus=2                                            " display status line with filepath
 set nowrap                                                  " don't wrap lines
 set backspace=indent,eol,start                              " backspace over everything in insert mode
+set scrolloff=8                                             " keep atleast 8 context lines visible above/below cursor
 set number                                                  " always show line numbers
 set ignorecase                                              " ignore case when searching
 set smartcase                                               " ignore case if search pattern is all lowercase,case-sensitive otherwise
@@ -28,6 +31,7 @@ set smartindent                                             " smart indenting mo
 set copyindent                                              " copy the previous indentation on autoindenting
 set hlsearch                                                " highlight search terms
 set incsearch                                               " show search matches as you type
+set clipboard=unnamedplus                                   " sync vim clipboard directly with system clipboard
 set nobackup                                                " disable backup file
 set noswapfile                                              " disable swap (*.swp) file
 set smartcase                                               " enable smart-case searching (lowercase matches both)
@@ -49,6 +53,24 @@ set novisualbell                                            " ... and don't blin
 set numberwidth=5                                           " line nums run upto 99999
 set esckeys                                                 " allow arrow keys with ESC keycode
 set showmode                                                " show the status line, with mode & filepath
+
+" persistent_undo feature
+if has('persistent_undo')
+    " define a path to store persistent_undo files.
+    let target_path = expand('~/.config/vim-persisted-undo/')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call system('mkdir -p ' . target_path)
+    endif
+
+    " point Vim to the defined undo directory.
+    let &undodir = target_path
+
+    " finally, enable undo persistence.
+    set undofile
+endif
 
 " folding stuff
 set nofoldenable                                            " Turn off auto-folding
@@ -90,3 +112,7 @@ nnoremap <C-S-H> <C-W><C-H>
 "color scheme stuff
 set t_Co=256
 set background=dark
+
+call plug#begin()
+" List your plugins here
+call plug#end()
